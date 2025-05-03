@@ -50,7 +50,7 @@ class Userbot(Client):
             no_updates=True,
         )
         self.five = Client(
-            name="DuskyFivd",
+            name="DuskyFive",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_name=str(config.STRING5),
