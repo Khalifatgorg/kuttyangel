@@ -16,7 +16,7 @@ from pyrogram.errors import (ChatAdminRequired,
                              UserAlreadyParticipant,
                              UserNotParticipant)
 from pyrogram.types import InlineKeyboardMarkup
-from pytgcalls import PyTgCalls, StreamType
+from pytgcalls import PyTgCalls, AudioQuality, VideoQuality
 from pytgcalls.exceptions import (AlreadyJoinedError,
                                   NoActiveGroupCall,
                                   TelegramServerError)
