@@ -7,11 +7,6 @@
 #
 # All rights reserved.
 
-from typing import Union
-
-from pyrogram.types import Message
-
-
 def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
@@ -46,7 +41,7 @@ def convert_bytes(size: float) -> str:
     while size > power:
         size /= power
         t_n += 1
-    return "{:.2f} {}B".format(size, power_dict[t_n])
+    return f"{size:.2f} {power_dict[t_n]}B"
 
 
 async def int_to_alpha(user_id: int) -> str:
@@ -70,10 +65,7 @@ async def alpha_to_int(user_id_alphabet: str) -> int:
 
 def time_to_seconds(time):
     stringt = str(time)
-    return sum(
-        int(x) * 60**i
-        for i, x in enumerate(reversed(stringt.split(":")))
-    )
+    return sum(int(x) * 60**i for i, x in enumerate(reversed(stringt.split(":"))))
 
 
 def seconds_to_min(seconds):
@@ -86,13 +78,13 @@ def seconds_to_min(seconds):
             seconds % 3600 % 60,
         )
         if d > 0:
-            return "{:02d}:{:02d}:{:02d}:{:02d}".format(d, h, m, s)
+            return f"{d:02d}:{h:02d}:{m:02d}:{s:02d}"
         elif h > 0:
-            return "{:02d}:{:02d}:{:02d}".format(h, m, s)
+            return f"{h:02d}:{m:02d}:{s:02d}"
         elif m > 0:
-            return "{:02d}:{:02d}".format(m, s)
+            return f"{m:02d}:{s:02d}"
         elif s > 0:
-            return "00:{:02d}".format(s)
+            return f"00:{s:02d}"
     return "-"
 
 
@@ -134,4 +126,4 @@ formats = [
     "f4p",
     "f4a",
     "f4b",
-]
+        ]
